@@ -3,19 +3,23 @@
     <!-- 轮播图 -->
     <mt-swipe :auto="4000">
       <!-- 在组件中使用v-for循环一定要使用key -->
-      <mt-swipe-item>1</mt-swipe-item>
-      <mt-swipe-item>2</mt-swipe-item>
-      <mt-swipe-item>3</mt-swipe-item>
+      <mt-swipe-item v-for="item in lunbotuList" :key="item.img">
+          <a :href="item.url">
+          <img :src="item.img" alt="">
+          </a>
+      </mt-swipe-item>
+      <!-- <mt-swipe-item>2</mt-swipe-item>
+      <mt-swipe-item>3</mt-swipe-item> -->
     </mt-swipe>
     <!-- 9宫格到6宫格 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#">
+        <router-link to="/home/newslist">
           <!-- <span class="mui-icon mui-icon-home"></span> -->
           <!-- 用绝对路径才可以 -->
           <img src="images/briefcase.png" alt="" >
           <div class="mui-media-body">新闻咨询</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
         <a href="#">
@@ -70,10 +74,11 @@ export default {
     getLunbotu() {
       //获取轮播图数据
       this.$http
-        .get("http://vue.studyit.io/api/getlunbo")
+        .get("api/getlunbo")
         .then(result => {
+            console.log(result);
           if (result.status === 200) {
-            this.lunbotuList = result.body.message;
+            this.lunbotuList = result.body;
           }
         })
         .catch(err => {

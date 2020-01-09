@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <!-- 顶部header区域 -->
-    <mt-header fixed title="Vue项目"></mt-header>
+    <mt-header fixed title="不要担心我"></mt-header>
     
 
     <!-- 中间的路由 router-view--->
@@ -40,7 +40,8 @@
 
 <style lang="scss" scoped>
 .app-container {
-  padding-top: 40px;
+  padding-top: 40px;//解决数据不会被顶部遮住
+  padding-bottom: 50px;//解决底部数据会被底部遮住
   overflow-x: hidden;//解决页面切换时的问题header和taber会暂时错乱
 }
 
