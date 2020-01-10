@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 //1.2安装路由
 Vue.use(VueRouter)
 
-//定义全局的过滤器
+//定义全局的时间过滤器
 import moment from 'moment'
 Vue.filter('dateFormat',function (dataStr,pattern="YYYY-MM-DD HH:mm:ss") {
   return  moment(dataStr).format(pattern)

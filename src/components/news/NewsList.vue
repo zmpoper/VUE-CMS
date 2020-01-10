@@ -2,17 +2,18 @@
   <div>
     <ul class="mui-table-view">
       <li class="mui-table-view-cell mui-media" v-for="item in newslist" :key="item.id">
-        <a href="javascript:;">
+          <!-- 如果只是单纯的地址不需要单引号，也不需要绑定to(:to)，但是这里要用到拼接变量，所以加单引号，注意体会 -->
+        <router-link :to="'/home/newsinfo/'+item.id">
           <img class="mui-media-object mui-pull-left" :src="item.img_url" />
           <div class="mui-media-body">
             <h1>{{item.title}}</h1>
             <p class="mui-ellipsis">
                 <!-- todo 时间过滤|dateFormat -->
-                <span>发表时间：{{item.add_time}}</span>
+                <span>发表时间：{{item.add_time|dateFormat}}</span>
                 <span>点击：{{item.click}}次</span>
             </p>
           </div>
-        </a>
+        </router-link>
       </li>
       <!-- <li class="mui-table-view-cell mui-media">
         <a href="javascript:;">
