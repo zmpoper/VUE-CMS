@@ -6,10 +6,19 @@
             <span>点击：{{newsinfo.click}}次</span>
         </p>
         <hr>
+        <!-- 内容区域 -->
         <div class="content" v-html="newsinfo.content"></div>
+
+        <!-- 评论组件区域 -->
+        <comment-box :id="this.id"></comment-box>
+
+
+
     </div>
 </template>
 <script>
+//1，导入评论组件
+import comment from '../subcomponents/Comment.vue'
 export default {
     data () {
         return {
@@ -30,6 +39,10 @@ export default {
                 
             });
         }
+    },
+    components:{//用阿里注册子组件的节点
+      "comment-box": comment
+
     }
 }
 </script>
