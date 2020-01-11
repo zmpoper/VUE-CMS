@@ -39,6 +39,9 @@
 // fibers@>= 3.1.0
 
 <style lang="scss" scoped>
+.mint-header{
+	z-index: 99;//防止上下滑动时盖住顶部标题 z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。
+}
 .app-container {
   padding-top: 40px;//解决数据不会被顶部遮住
   padding-bottom: 50px;//解决底部数据会被底部遮住
