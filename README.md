@@ -92,3 +92,10 @@
   +  解决方案： 1. 把mui.js 中的 非严格 模式的代码改掉，但是不现实。2. 把webpack
      打包时候的严格模式禁用掉
      [babel-plugin-transform-remove-strict-mode](https://github.com/genify/babel-plugin-transform-remove-strict-mode)
+
+  +  [去除谷歌浏览器滑动警告，使其滑动更为流畅](https://developer.mozilla.org/zh-CN/docs/Web/CSS/touch-action)
+
+5. 刚进入图片分享页面，滑动条无法正常工作，经过分析，如果要初始化，滑动条，必须等DOM加载完毕
+   + 解决方法： 将初始化滑动的代码，搬到mounted生命周期函数中
+6. 当滑动条 调试ok后，发现tabbar 无法正常工作了，这时候 我们需要把每个tabbar按钮
+的样式中 mui-tab-item 重新改一下名字
