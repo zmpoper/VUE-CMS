@@ -85,7 +85,7 @@
 4. 我们在初始化 滑动条的时候，导入了mui.js 但是 控制台报错
 ```
     Uncaught TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
-    ```
+```
   + 经过我们合理的推测，觉得 可能是mui.js 中用到了 'caller', 'callee',and
     arguments 东西，但是webpack 打包好的 bundle.js 中， 默认是启用严格模式的，
     所以，这两者冲突了
