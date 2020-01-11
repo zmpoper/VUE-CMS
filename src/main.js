@@ -29,6 +29,9 @@ Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Button.name, Button)
 Vue.use(Lazyload)
+//略缩图组件图片预览
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
 //全部导入（非按需导入）begin
 // import MintUI from 'mint-ui'
 // Vue.use(MintUI)

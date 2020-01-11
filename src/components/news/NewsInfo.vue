@@ -40,7 +40,7 @@ export default {
             });
         }
     },
-    components:{//用阿里注册子组件的节点
+    components:{//注册子组件的节点
       "comment-box": comment
 
     }
