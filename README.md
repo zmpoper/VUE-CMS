@@ -74,3 +74,21 @@
 ### 制作顶部滑动条的坑们：
 1. 需要借助于MUI 中的tab-top-webview-main.html
 2. 需要把slider区域的 mui-fullscreen 类去掉
+3. 滑动条无法正常触发滑动，通过检查官方文档，发现这是JS组件，需要被初始化一下
+ + 导入mui.js
+ + 调用官方提供的方式 去初始化
+ ```
+   mui('.mui-scroll-wrapper').scroll({
+	deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+});
+``` 
+4. 我们在初始化 滑动条的时候，导入了mui.js 但是 控制台报错
+```
+    Uncaught TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+    ```
+  + 经过我们合理的推测，觉得 可能是mui.js 中用到了 'caller', 'callee',and
+    arguments 东西，但是webpack 打包好的 bundle.js 中， 默认是启用严格模式的，
+    所以，这两者冲突了
+  +  解决方案： 1. 把mui.js 中的 非严格 模式的代码改掉，但是不现实。2. 把webpack
+     打包时候的严格模式禁用掉
+     [babel-plugin-transform-remove-strict-mode](https://github.com/genify/babel-plugin-transform-remove-strict-mode)
