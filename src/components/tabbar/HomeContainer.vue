@@ -83,6 +83,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
+          alert(JSON.stringify(err));
           Toast("加载轮播图失败");
         });
     }
@@ -92,7 +93,7 @@ export default {
 
 <style lang="scss" scoped>
 .mint-swipe {
-  height: 200px;
+  height: 230px;// 适应iphone6
   .mint-swipe-item {
     &:nth-child(1) {
       background-color: red;

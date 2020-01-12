@@ -16,7 +16,7 @@ import VueResource from 'vue-resource'
 //2.2 安装 vue-resource
 Vue.use(VueResource)
 //全局设置请求根路径
-Vue.http.options.root='http://127.0.0.1:1337';
+Vue.http.options.root='http://192.168.1.2:1337';
 //全局设置post时候表单数据格式组织形式 application/x-www-form-urlencoded
 Vue.http.options.emulateJSON = true;
 //导入MUI的样式
