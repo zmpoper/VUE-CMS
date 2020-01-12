@@ -1,16 +1,7 @@
 <template>
   <div>
     <!-- 轮播图 -->
-    <mt-swipe :auto="4000">
-      <!-- 在组件中使用v-for循环一定要使用key -->
-      <mt-swipe-item v-for="item in lunbotuList" :key="item.img">
-          <a :href="item.url">
-          <img :src="item.img" alt="">
-          </a>
-      </mt-swipe-item>
-      <!-- <mt-swipe-item>2</mt-swipe-item>
-      <mt-swipe-item>3</mt-swipe-item> -->
-    </mt-swipe>
+    <swiper :lunbotuList="lunbotuList" :isfull="true"></swiper>
     <!-- 9宫格到6宫格 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -60,6 +51,7 @@
 
 <script>
 import { Toast } from "mint-ui";
+import swiper from '../subcomponents/Swiper.vue'
 
 export default {
   data() {
@@ -87,25 +79,15 @@ export default {
           Toast("加载轮播图失败");
         });
     }
+  },
+  components:{
+    swiper
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.mint-swipe {
-  height: 230px;// 适应iphone6
-  .mint-swipe-item {
-    &:nth-child(1) {
-      background-color: red;
-    }
-    &:nth-child(2) {
-      background-color: blue;
-    }
-    &:nth-child(3) {
-      background-color: black;
-    }
-  }
-}
+
 
 .mui-grid-view.mui-grid-9{
     background-color:white;

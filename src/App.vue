@@ -1,7 +1,9 @@
 <template>
   <div class="app-container">
     <!-- 顶部header区域 -->
-    <mt-header fixed title="不要担心我"></mt-header>
+    <mt-header fixed title="不要担心我">
+          <mt-button icon="back" slot="left" @click="handleClose">返回</mt-button>
+    </mt-header>
     
 
     <!-- 中间的路由 router-view--->
@@ -34,6 +36,18 @@
 </template>
 <script>
 //按需导入Toast组件
+export default {
+  data () {
+    return {
+      
+    }
+  },
+  methods: {
+   handleClose(){
+     this.$router.go(-1);//后退
+   }
+  }
+}
 </script>
 // node-sass@^4.0.0 
 // fibers@>= 3.1.0
