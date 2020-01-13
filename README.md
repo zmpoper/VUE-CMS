@@ -123,4 +123,4 @@
 1. 要保证 手机 和 开发项目的电脑 处于同一个WIF 环境中，也就是说 手机可以访问到 电脑的ip
 2. 打开自己的项目中 package.json 文件，在 dve 脚本中，添加一个--host指令，把当前电脑的
 WiFI ip 地址， 设置为 --host 的指令值；
- + 
+ + "dev": "webpack-dev-server --open --port 3000  --hot --host 192.168.1.2",
