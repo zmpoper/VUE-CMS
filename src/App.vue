@@ -2,7 +2,7 @@
   <div class="app-container">
     <!-- 顶部header区域 -->
     <mt-header fixed title="不要担心我">
-          <mt-button icon="back" slot="left" @click="handleClose">返回</mt-button>
+          <mt-button icon="back" slot="left" @click="handleClose" v-show="flag">返回</mt-button>
     </mt-header>
     
 
@@ -23,7 +23,7 @@
       </router-link>
       <router-link class="mui-tab-item-zm" to="/shopcar">
         <span class="mui-icon mui-icon-extra mui-icon-extra-cart">
-          <span class="mui-badge" id="badge">0</span>
+          <span class="mui-badge" id="badge">{{$store.getters.getAllCount}}</span>
         </span>
         <span class="mui-tab-label">购物车</span>
       </router-link>
@@ -39,15 +39,27 @@
 export default {
   data () {
     return {
-      
+      flag:false
     }
+  },
+  created () {
+    this.flag = this.$route.path ==='/home' ? false : true
   },
   methods: {
    handleClose(){
      this.$router.go(-1);//后退
    }
+  },
+  watch: {
+    '$route.path':function(newVal){
+       if(newVal === "/home"){
+         this.flag = false;
+       }else{
+         this.flag = true
+       }
+    }
   }
-}
+};
 </script>
 // node-sass@^4.0.0 
 // fibers@>= 3.1.0
